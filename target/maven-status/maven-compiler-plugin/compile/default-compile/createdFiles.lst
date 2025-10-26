@@ -1,0 +1,4 @@
+com\bookfinder\repository\BookRepository.class
+com\bookfinder\model\Book.class
+com\bookfinder\BookFinderApplication.class
+com\bookfinder\controller\BookController.class
