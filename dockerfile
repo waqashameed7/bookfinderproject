@@ -1,5 +1,8 @@
 # ===== Build stage =====
-FROM maven:3.9.9-eclipse-temurin-25 AS build
+FROM openjdk:25-jdk AS build
+
+# Install Maven manually (since the Maven wrapper might not be available)
+RUN apt-get update && apt-get install -y maven
 
 # Set working directory
 WORKDIR /app
