@@ -1,6 +1,5 @@
 # ===== Build stage =====
 FROM openjdk:25-jdk AS build
-docker pull maven:3.9.9-eclipse-temurin-25
 
 # Install Maven manually (since the Maven wrapper might not be available)
 RUN apt-get update && apt-get install -y maven
