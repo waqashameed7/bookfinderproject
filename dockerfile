@@ -1,11 +1,10 @@
-# Use Maven with OpenJDK 21
-FROM maven:3.9.1-openjdk-21
+FROM openjdk:21-jdk-slim
 
 WORKDIR /app
 COPY . /app
 
-# Package the project
-RUN mvn clean package
+# Install Maven
+RUN apt-get update && apt-get install -y maven
 
-# Run the app
+RUN mvn clean package
 CMD ["java", "-jar", "target/your-app-name.jar"]
