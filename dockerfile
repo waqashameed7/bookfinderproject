@@ -1,13 +1,14 @@
-FROM maven:3.9.1-openjdk-25
+# Use CircleCI's OpenJDK 25 image with Maven pre-installed
+FROM cimg/openjdk:25.0.0
 
-# Set working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy project files
-COPY . .
+# Copy your project files into the container
+COPY . /app
 
-# Package the project
+# Package the application using Maven
 RUN mvn clean package
 
-# Run the app
+# Run the application
 CMD ["java", "-jar", "target/your-app-name.jar"]
