@@ -9,5 +9,10 @@ WORKDIR /app
 COPY . /app
 
 RUN mvn clean package
-CMD ["java", "-jar", "target/bookfinderproject-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/book-finder-0.0.1-SNAPSHOT.jar"]
+# Copy built JAR to a standard name
+COPY target/*.jar app.jar
+
+CMD ["java", "-jar", "app.jar"]
+
 
