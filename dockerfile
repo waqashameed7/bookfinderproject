@@ -15,8 +15,8 @@ COPY . /app
 # Build the Maven project
 RUN mvn clean package
 
-# Copy the built JAR to a standard name
-RUN cp target/book-finder-0.0.1-SNAPSHOT.jar app.jar
+# Copy any JAR in target/ to a standard name
+RUN cp target/*.jar app.jar
 
 # Run the application
 CMD ["java", "-jar", "app.jar"]
